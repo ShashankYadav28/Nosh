@@ -16,9 +16,7 @@ struct OrderView: View {
                     ForEach(MockData.orderItem, id: \.id) { orderitem in
                         AppetizerListCell(appetizer: orderitem)
                     }
-                    .onDelete { IndexSet in
-                        orderItem.remove(atOffsets: IndexSet)
-                    }
+                    .onDelete(perform: deleteItem)
                 }
                 .listStyle(PlainListStyle())
                 
@@ -31,6 +29,10 @@ struct OrderView: View {
             }
             .navigationTitle("Orders")
         }
+       
+    }
+    func deleteItem(at Offsets: IndexSet){
+        orderItem.remove(atOffsets: Offsets)
     }
 }
 

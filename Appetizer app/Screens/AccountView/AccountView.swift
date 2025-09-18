@@ -46,6 +46,9 @@ struct AccountView: View {
                 
             }
             //.environment(\.toggleStyle, SwitchToggleStyle(tint: .brandPrimary)) // this will apply toggle style to each toggle
+            .onAppear {
+                accountViewModel.retrive()
+            }
             .navigationTitle("  Account")
             .alert(item: $accountViewModel.alertItem) { alertItem in
                 Alert(title: alertItem.Title, message: alertItem.message, dismissButton: alertItem.dissmedButton)
