@@ -36,12 +36,12 @@ final class AccountViewModel: ObservableObject {
         }
        
         do {
-            _ = try JSONDecoder().decode(User.self, from: userData)  // decode is used for loading the saved data and converting the json format data to user object
+            user = try JSONDecoder().decode(User.self, from: userData)  // decode is used for loading the saved data and converting the json format data to user object
             
             
         }
         catch {
-            
+            alertItem = AlertContext.invalidData
         }
     }
     
