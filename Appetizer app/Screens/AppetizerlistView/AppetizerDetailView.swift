@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AppetizerDetailView: View {
+    
+    @EnvironmentObject var order:Order  // it will assume something is in the environment and  it will pull from it
     let appetizer:Appetizer
     @Binding var isShowingDetailView:Bool
     var body: some View {
@@ -68,7 +70,8 @@ struct AppetizerDetailView: View {
             Spacer()
             
             Button {
-                print("button dismissed")
+                order.items.append(appetizer)
+                isShowingDetailView = false
                 
             }
             label:{

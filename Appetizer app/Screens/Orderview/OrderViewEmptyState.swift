@@ -35,4 +35,5 @@ struct OrderViewEmptyState: View {
 
 #Preview {
     OrderViewEmptyState(imageName: "empty-order", message: "This is our test message.I am making it is a little long for testing. i want to check if it is working fine or not")
+        .environmentObject(Order())
 }

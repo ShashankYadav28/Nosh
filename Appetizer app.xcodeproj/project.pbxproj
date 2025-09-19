@@ -28,6 +28,7 @@
 		DD6C333B2E718193009B3FEE /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C333A2E718193009B3FEE /* AppetizerDetailView.swift */; };
 		DD6C333E2E73107B009B3FEE /* APButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C333D2E730F69009B3FEE /* APButton.swift */; };
 		DD6C33412E73C428009B3FEE /* XDDismissed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C33402E73C417009B3FEE /* XDDismissed.swift */; };
+		DD700BEB2E7D18FC00DDA7DA /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700BEA2E7D18F400DDA7DA /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		DD6C333A2E718193009B3FEE /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		DD6C333D2E730F69009B3FEE /* APButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
 		DD6C33402E73C417009B3FEE /* XDDismissed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDDismissed.swift; sourceTree = "<group>"; };
+		DD700BEA2E7D18F400DDA7DA /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -255,6 +257,7 @@
 		DD6C33372E717FDB009B3FEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD700BEA2E7D18F400DDA7DA /* Order.swift */,
 				DD5385BF2E798CD00079945E /* User_App Storage.swift */,
 				DD6C330D2E717D48009B3FEE /* Appetizer.swift */,
 			);
@@ -433,6 +436,7 @@
 				DD6C33262E717D48009B3FEE /* ColorExtension.swift in Sources */,
 				DD6C33272E717D48009B3FEE /* loadingView.swift in Sources */,
 				DD6C333E2E73107B009B3FEE /* APButton.swift in Sources */,
+				DD700BEB2E7D18FC00DDA7DA /* Order.swift in Sources */,
 				DD6C33282E717D48009B3FEE /* NetworkManager.swift in Sources */,
 				DD6C332A2E717D48009B3FEE /* RemoteImage.swift in Sources */,
 			);
