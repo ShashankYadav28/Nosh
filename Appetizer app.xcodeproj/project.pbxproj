@@ -369,7 +369,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DD46B8FF2E62EFC700456183 /* Build configuration list for PBXProject "Appetizer app" */;
+			buildConfigurationList = DD46B8FF2E62EFC700456183 /* Build configuration list for PBXProject "Nosh" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -728,7 +728,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD46B8FF2E62EFC700456183 /* Build configuration list for PBXProject "Appetizer app" */ = {
+		DD46B8FF2E62EFC700456183 /* Build configuration list for PBXProject "Nosh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD46B9232E62EFCA00456183 /* Debug */,
