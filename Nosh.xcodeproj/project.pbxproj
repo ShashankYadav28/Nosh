@@ -74,6 +74,7 @@
 		DD6C333D2E730F69009B3FEE /* APButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
 		DD6C33402E73C417009B3FEE /* XDDismissed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDDismissed.swift; sourceTree = "<group>"; };
 		DD700BEA2E7D18F400DDA7DA /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		DD700BEC2E7D9F4C00DDA7DA /* Appetizer-app-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Appetizer-app-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -142,6 +143,7 @@
 		DD6C331A2E717D48009B3FEE /* Appetizer app */ = {
 			isa = PBXGroup;
 			children = (
+				DD700BEC2E7D9F4C00DDA7DA /* Appetizer-app-Info.plist */,
 				DD6C332F2E717E7B009B3FEE /* Utilities */,
 				DD6C332B2E717D92009B3FEE /* Screens */,
 				DD6C330E2E717D48009B3FEE /* Appetizer_appApp.swift */,
@@ -603,6 +605,7 @@
 				DEVELOPMENT_TEAM = W474LURM85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Appetizer-app-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -631,6 +634,7 @@
 				DEVELOPMENT_TEAM = W474LURM85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Appetizer-app-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
