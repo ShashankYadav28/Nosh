@@ -11,23 +11,31 @@ struct OrderView: View {
     @State private var orderItem  = MockData.orderItem
     var body: some View {
         NavigationView{
-            VStack{
-                List{
-                    ForEach(MockData.orderItem, id: \.id) { orderitem in
-                        AppetizerListCell(appetizer: orderitem)
+            ZStack{
+                VStack{
+                    List{
+                        ForEach(orderItem, id: \.id) { orderitem in
+                            AppetizerListCell(appetizer: orderitem)
+                        }
+                        .onDelete(perform: deleteItem)
                     }
-                    .onDelete(perform: deleteItem)
+                    .listStyle(PlainListStyle())
+                    
+                    Button {
+                        print("order placd ")
+                    }label: {
+                        APButton(title: "$12 - Place Order")
+                    }
+                    .padding(.bottom,25)
                 }
-                .listStyle(PlainListStyle())
+                .navigationTitle("Orders")
                 
-                Button {
-                    print("order placd ")
-                }label: {
-                    APButton(title: "$12 - Place Order")
+                if orderItem.isEmpty {
+                    OrderViewEmptyState(imageName: "empty-order", message: "You have no items in oyur orders.\n please add the appetizer")
+                    
                 }
-                .padding(.bottom,25)
             }
-            .navigationTitle("Orders")
+            
         }
        
     }
