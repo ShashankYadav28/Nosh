@@ -31,14 +31,14 @@ struct AppetizerListView: View {
                         })*/
                 }
                 .navigationTitle("🍿 Appetizers")
-                .blur(radius: viewModel.isShowingDetailView ? 20 : 0)
+                //.blur(radius: viewModel.isShowingDetailView ? 20 : 0)
                 .disabled(viewModel.isShowingDetailView)
                 
                 //.navigationTitle("🍿 Appetizers")
                
                 
             }
-          //  .blur(radius: isShowingDetailView ? 20 : 0)
+            .blur(radius: viewModel.isShowingDetailView ? 20 : 0)
             .onAppear() {
                 viewModel.getAppetizer()
             }
