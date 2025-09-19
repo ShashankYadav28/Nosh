@@ -78,6 +78,8 @@ struct AppetizerDetailView: View {
               APButton(title: "$\(appetizer.price,specifier: "%.2f") - Add To Order")
                 
             }
+            .buttonStyle(.bordered)
+            .tint(.brandPrimary)
             .padding(.bottom,30)
             
             
@@ -100,4 +102,5 @@ struct AppetizerDetailView: View {
 
 #Preview {
     AppetizerDetailView(appetizer: MockData.sampleAppetizer, isShowingDetailView: .constant(false))
+        .environmentObject(Order())
 }

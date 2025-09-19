@@ -30,10 +30,11 @@ struct AppetizerListView: View {
                             AppetizerDetailView(appetizer: viewModel.selectedAppetizer ?? MockData.sampleAppetizer, isShowingDetailView: $viewModel.isShowingDetailView)
                         })*/
                 }
+                .navigationTitle("🍿 Appetizers")
                 .blur(radius: viewModel.isShowingDetailView ? 20 : 0)
                 .disabled(viewModel.isShowingDetailView)
                 
-                .navigationTitle("🍿 Appetizers")
+                //.navigationTitle("🍿 Appetizers")
                
                 
             }
