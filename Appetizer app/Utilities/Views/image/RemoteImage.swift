@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class ImageLoader: ObservableObject {      // this is used for doenloading the image from the network manger and swerver
+final class ImageLoader: ObservableObject {      // this is used for downloading the image from the network manger and swerver
     
     @Published var image: Image? = nil            // notify about the image changes
     

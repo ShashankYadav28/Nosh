@@ -19,20 +19,27 @@ final class AccountViewModel: ObservableObject {
         do {
             let data = try JSONEncoder().encode(user)
             userData = data
-            alertItem = AlertContext.userSaveSuccess
+            alertItem = AlertContext.savedSuccess
         } catch {
-            alertItem = AlertContext.invalidUserData
+            alertItem = AlertContext.errorsaving
         }
     }
     
     
     func retrieveUser() {
         guard let userData else { return }
+     //    •    saveChanges() → Encoding:
+     //   •    Takes your User struct → converts it to JSON data using JSONEncoder.
+     //   •    Stores that JSON data in @AppStorage (i.e., UserDefaults).
+     //   •    retrieveUser() → Decoding:
+     //   •    Takes the JSON data from @AppStorage → converts it back into a User struct using JSONDecoder.
+     //   •    Populates your view model so the UI can show the saved values.
+
         
         do {
             user = try JSONDecoder().decode(User.self, from: userData)
         } catch {
-            alertItem = AlertContext.invalidUserData
+            alertItem = AlertContext.invalidData
         }
     }
     
@@ -43,8 +50,8 @@ final class AccountViewModel: ObservableObject {
             return false
         }
         
-        guard user.email.isValidEmail else {
-            alertItem = AlertContext.invalidEmail
+        guard user.email.isValid else {
+            alertItem = AlertContext.invalidemailId
             return false
         }
         

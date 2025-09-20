@@ -26,6 +26,12 @@
 		DD700C062E7E644800DDA7DA /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C052E7E644800DDA7DA /* SplashScreen.swift */; };
 		DD700C132E7E671700DDA7DA /* AccountView 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C122E7E671700DDA7DA /* AccountView 3.swift */; };
 		DD700C152E7E673E00DDA7DA /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C142E7E673000DDA7DA /* AccountViewModel.swift */; };
+		DD700C192E7E67D300DDA7DA /* AppetizerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C182E7E67D300DDA7DA /* AppetizerListViewModel.swift */; };
+		DD700C1B2E7E67E100DDA7DA /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C1A2E7E67E100DDA7DA /* AppetizerDetailView.swift */; };
+		DD700C1D2E7E67FA00DDA7DA /* AppetizerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C1C2E7E67FA00DDA7DA /* AppetizerListView.swift */; };
+		DD700C1F2E7E68D800DDA7DA /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C1E2E7E68D800DDA7DA /* OrderView.swift */; };
+		DD700C222E7E691100DDA7DA /* AppetizerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C212E7E691100DDA7DA /* AppetizerTabView.swift */; };
+		DD700C282E7E71E400DDA7DA /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C272E7E71E400DDA7DA /* EmptyState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		DD700C052E7E644800DDA7DA /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		DD700C122E7E671700DDA7DA /* AccountView 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountView 3.swift"; sourceTree = "<group>"; };
 		DD700C142E7E673000DDA7DA /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		DD700C182E7E67D300DDA7DA /* AppetizerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListViewModel.swift; sourceTree = "<group>"; };
+		DD700C1A2E7E67E100DDA7DA /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
+		DD700C1C2E7E67FA00DDA7DA /* AppetizerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListView.swift; sourceTree = "<group>"; };
+		DD700C1E2E7E68D800DDA7DA /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		DD700C212E7E691100DDA7DA /* AppetizerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTabView.swift; sourceTree = "<group>"; };
+		DD700C272E7E71E400DDA7DA /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -246,6 +258,9 @@
 		DD700C0D2E7E668000DDA7DA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DD700C212E7E691100DDA7DA /* AppetizerTabView.swift */,
+				DD700C202E7E68E500DDA7DA /* OrderView */,
+				DD700C172E7E67A400DDA7DA /* AppetizerListview */,
 				DD700C162E7E676500DDA7DA /* AccountView */,
 			);
 			path = Screens;
@@ -258,6 +273,25 @@
 				DD700C122E7E671700DDA7DA /* AccountView 3.swift */,
 			);
 			path = AccountView;
+			sourceTree = "<group>";
+		};
+		DD700C172E7E67A400DDA7DA /* AppetizerListview */ = {
+			isa = PBXGroup;
+			children = (
+				DD700C182E7E67D300DDA7DA /* AppetizerListViewModel.swift */,
+				DD700C1A2E7E67E100DDA7DA /* AppetizerDetailView.swift */,
+				DD700C1C2E7E67FA00DDA7DA /* AppetizerListView.swift */,
+			);
+			path = AppetizerListview;
+			sourceTree = "<group>";
+		};
+		DD700C202E7E68E500DDA7DA /* OrderView */ = {
+			isa = PBXGroup;
+			children = (
+				DD700C1E2E7E68D800DDA7DA /* OrderView.swift */,
+				DD700C272E7E71E400DDA7DA /* EmptyState.swift */,
+			);
+			path = OrderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,19 +439,25 @@
 				DD6C33412E73C428009B3FEE /* XDDismissed.swift in Sources */,
 				DD6C331D2E717D48009B3FEE /* Alert.swift in Sources */,
 				DD6C331E2E717D48009B3FEE /* APerror.swift in Sources */,
+				DD700C282E7E71E400DDA7DA /* EmptyState.swift in Sources */,
 				DD6C331F2E717D48009B3FEE /* Appetizer.swift in Sources */,
 				DD700C152E7E673E00DDA7DA /* AccountViewModel.swift in Sources */,
 				DD6C33202E717D48009B3FEE /* Appetizer_appApp.swift in Sources */,
+				DD700C192E7E67D300DDA7DA /* AppetizerListViewModel.swift in Sources */,
 				DD6C33212E717D48009B3FEE /* AppetizerListCell.swift in Sources */,
+				DD700C1D2E7E67FA00DDA7DA /* AppetizerListView.swift in Sources */,
 				DD5385BA2E7912E80079945E /* String+Extension.swift in Sources */,
 				DD700C132E7E671700DDA7DA /* AccountView 3.swift in Sources */,
+				DD700C1B2E7E67E100DDA7DA /* AppetizerDetailView.swift in Sources */,
 				DD5385C02E798CE60079945E /* User_App Storage.swift in Sources */,
 				DD700C062E7E644800DDA7DA /* SplashScreen.swift in Sources */,
 				DD6C33222E717D48009B3FEE /* AppetizerlistCell1.swift in Sources */,
+				DD700C222E7E691100DDA7DA /* AppetizerTabView.swift in Sources */,
 				DD6C33262E717D48009B3FEE /* ColorExtension.swift in Sources */,
 				DD6C33272E717D48009B3FEE /* loadingView.swift in Sources */,
 				DD6C333E2E73107B009B3FEE /* APButton.swift in Sources */,
 				DD700BEB2E7D18FC00DDA7DA /* Order.swift in Sources */,
+				DD700C1F2E7E68D800DDA7DA /* OrderView.swift in Sources */,
 				DD6C33282E717D48009B3FEE /* NetworkManager.swift in Sources */,
 				DD6C332A2E717D48009B3FEE /* RemoteImage.swift in Sources */,
 			);
