@@ -17,7 +17,7 @@ struct XDDismissed: View  {
                 .opacity(0.66)
             
             Image(systemName: "xmark")
-                .imageScale(.small)
+                .imageScale(.medium)
                 .frame(width: 40,height: 40)
                 .foregroundColor(.black)
                 
