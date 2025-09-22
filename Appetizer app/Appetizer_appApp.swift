@@ -10,11 +10,28 @@ import SwiftUI
 @main
 struct Appetizer_appApp: App {
     var order = Order()
+    @State private var showSplash = true
     var body: some Scene {
         WindowGroup {
-            AppetizerTabView()
-                .environmentObject(order)  // injecting the object so that we can use it anywhere
-                                            // now it has become the environmrnt object
-        }                                    // to access the object  need to use @Environment
+            ZStack {
+                AppetizerTabView()
+                    .environmentObject(order)               // injecting the object so that we can use it anywhere in the view in the childview etc
+                // now it has become the environmrnt object
+                // to access the object  need to use @Environment
+                
+                
+                if showSplash {
+                    SplashScreen()
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now()+2){
+                                showSplash = false
+                            }
+                        }
+                    
+                }
+                
+            }
+        }
     }
 }
+

@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    @State  private var isActive = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack{
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width:250,height:250)
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now()+2){
+                    withAnimation {
+                        isActive = true
+                }
+            }
+        }
     }
 }
 
