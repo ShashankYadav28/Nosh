@@ -17,7 +17,7 @@ struct Appetizer_appApp: App {
             if showSplash {
                 SplashScreen()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+                        DispatchQueue.main.asyncAfter(deadline: .now()+3){
                             showSplash = false
                         }
                     }
