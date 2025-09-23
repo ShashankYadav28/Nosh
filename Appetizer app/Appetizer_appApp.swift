@@ -13,23 +13,20 @@ struct Appetizer_appApp: App {
     @State private var showSplash = true
     var body: some Scene {
         WindowGroup {
-            ZStack {
+            
+            if showSplash {
+                SplashScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+                            showSplash = false
+                        }
+                    }
+            }
+            else {
                 AppetizerTabView()
                     .environmentObject(order)               // injecting the object so that we can use it anywhere in the view in the childview etc
                 // now it has become the environmrnt object
                 // to access the object  need to use @Environment
-                
-                
-                if showSplash {
-                    SplashScreen()
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now()+2){
-                                showSplash = false
-                            }
-                        }
-                    
-                }
-                
             }
         }
     }
