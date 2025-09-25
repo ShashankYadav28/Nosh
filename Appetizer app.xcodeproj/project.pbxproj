@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD4DE54D2E83A91E0042F005 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4DE54C2E83A9180042F005 /* OrderItem.swift */; };
 		DD5385BA2E7912E80079945E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5385B92E7912E80079945E /* String+Extension.swift */; };
 		DD5385C02E798CE60079945E /* User_App Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5385BF2E798CD00079945E /* User_App Storage.swift */; };
 		DD6C331B2E717D48009B3FEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6C33142E717D48009B3FEE /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		DD46B9042E62EFC700456183 /* Appetizer app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appetizer app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD46B9112E62EFCA00456183 /* Appetizer appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Appetizer appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD46B91B2E62EFCA00456183 /* Appetizer appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Appetizer appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD4DE54C2E83A9180042F005 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		DD5385B92E7912E80079945E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DD5385BF2E798CD00079945E /* User_App Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User_App Storage.swift"; sourceTree = "<group>"; };
 		DD6C330B2E717D48009B3FEE /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		DD6C33372E717FDB009B3FEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD4DE54C2E83A9180042F005 /* OrderItem.swift */,
 				DD700BEA2E7D18F400DDA7DA /* Order.swift */,
 				DD5385BF2E798CD00079945E /* User_App Storage.swift */,
 				DD6C330D2E717D48009B3FEE /* Appetizer.swift */,
@@ -453,6 +456,7 @@
 				DD700C062E7E644800DDA7DA /* SplashScreen.swift in Sources */,
 				DD6C33222E717D48009B3FEE /* AppetizerlistCell1.swift in Sources */,
 				DD700C222E7E691100DDA7DA /* AppetizerTabView.swift in Sources */,
+				DD4DE54D2E83A91E0042F005 /* OrderItem.swift in Sources */,
 				DD6C33262E717D48009B3FEE /* ColorExtension.swift in Sources */,
 				DD6C33272E717D48009B3FEE /* loadingView.swift in Sources */,
 				DD6C333E2E73107B009B3FEE /* APButton.swift in Sources */,

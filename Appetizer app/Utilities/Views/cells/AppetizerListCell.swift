@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppetizerListCell: View {
+    @EnvironmentObject var order:Order
     let appetizer:Appetizer
     var body: some View {
         HStack {

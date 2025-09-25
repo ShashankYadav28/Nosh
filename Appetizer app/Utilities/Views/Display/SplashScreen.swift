@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SplashScreen: View {
-    
+    @Binding var showSplash:Bool
+
     @State private var isActive = false
     @State private var logoOpacity  = 0.0
     @State private var textOpacity = 0.0
-    @State private var logoScale:CGFloat  = 0.6
+    @State private var logoScale:CGFloat  = 0.0
+    @State private var splashOpacity = 1.0
     
     var body: some View {
         ZStack {
@@ -36,19 +38,32 @@ struct SplashScreen: View {
                     .opacity(textOpacity)
             }
         }
+        .opacity(splashOpacity)
         .onAppear {
-            withAnimation(.spring(response: 0.7, dampingFraction: 0.7)) {
-                logoScale = 1.0
-                logoOpacity = 1.0
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
+                withAnimation(.spring(response: 0.7, dampingFraction: 0.7)) {
+                    logoScale = 1.0
+                    logoOpacity = 1.0
+                }
             }
-            
             withAnimation(.easeIn(duration: 1.0).delay(0.8)){
                 textOpacity = 1.0
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now()+2.5 ){
+                withAnimation(.easeOut(duration: 1.0)){
+                    splashOpacity = 0
+                    logoOpacity = 0
+                    logoScale = 0
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now()+1.0){
+                    showSplash = false
+                    
+                }
             }
         }
     }
 }
 
 #Preview {
-    SplashScreen()
+    SplashScreen(showSplash:.constant(true))
 }

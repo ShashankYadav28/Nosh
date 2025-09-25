@@ -15,12 +15,8 @@ struct Appetizer_appApp: App {
         WindowGroup {
             
             if showSplash {
-                SplashScreen()
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now()+3){
-                            showSplash = false
-                        }
-                    }
+                SplashScreen(showSplash: $showSplash)
+                    
             }
             else {
                 AppetizerTabView()

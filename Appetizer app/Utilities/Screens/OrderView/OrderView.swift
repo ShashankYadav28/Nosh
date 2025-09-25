@@ -10,6 +10,7 @@ import SwiftUI
 struct OrderView: View {
     
     @EnvironmentObject var order: Order
+ //   @State var orderAppetizer:OrderItem
     
     
     var body: some View {
@@ -17,8 +18,8 @@ struct OrderView: View {
             ZStack {
                 VStack {
                     List {
-                        ForEach(order.items) { appetizer in
-                            AppetizerListCell(appetizer: appetizer)
+                        ForEach(order.items) { orderitem in
+                            AppetizerListCell(appetizer: orderitem.appetizer)
                         }
                         .onDelete { IndexSet in
                             order.items.remove(atOffsets: IndexSet)
@@ -49,5 +50,6 @@ struct OrderView: View {
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
         OrderView()
+            .environmentObject(Order())
     }
 }
