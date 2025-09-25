@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppetizerListView: View {
+    @EnvironmentObject var order:Order
     
     @StateObject var viewModel = AppetizerListViewModel()
     
@@ -52,5 +53,6 @@ struct AppetizerListView: View {
 struct AppetizerListView_Previews: PreviewProvider {
     static var previews: some View {
         AppetizerListView()
+            .environmentObject(Order())
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD4DE54D2E83A91E0042F005 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4DE54C2E83A9180042F005 /* OrderItem.swift */; };
+		DD4DE5502E8525A00042F005 /* orderLIstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4DE54F2E8525A00042F005 /* orderLIstCell.swift */; };
 		DD5385BA2E7912E80079945E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5385B92E7912E80079945E /* String+Extension.swift */; };
 		DD5385C02E798CE60079945E /* User_App Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5385BF2E798CD00079945E /* User_App Storage.swift */; };
 		DD6C331B2E717D48009B3FEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6C33142E717D48009B3FEE /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		DD46B9112E62EFCA00456183 /* Appetizer appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Appetizer appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD46B91B2E62EFCA00456183 /* Appetizer appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Appetizer appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4DE54C2E83A9180042F005 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		DD4DE54F2E8525A00042F005 /* orderLIstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderLIstCell.swift; sourceTree = "<group>"; };
 		DD5385B92E7912E80079945E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DD5385BF2E798CD00079945E /* User_App Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User_App Storage.swift"; sourceTree = "<group>"; };
 		DD6C330B2E717D48009B3FEE /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			children = (
 				DD6C330F2E717D48009B3FEE /* AppetizerListCell.swift */,
 				DD6C33102E717D48009B3FEE /* AppetizerlistCell1.swift */,
+				DD4DE54F2E8525A00042F005 /* orderLIstCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				DD700BEB2E7D18FC00DDA7DA /* Order.swift in Sources */,
 				DD700C1F2E7E68D800DDA7DA /* OrderView.swift in Sources */,
 				DD6C33282E717D48009B3FEE /* NetworkManager.swift in Sources */,
+				DD4DE5502E8525A00042F005 /* orderLIstCell.swift in Sources */,
 				DD6C332A2E717D48009B3FEE /* RemoteImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
