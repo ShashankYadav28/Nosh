@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct Appetizer_appApp: App {
-    var order = Order()
+    @StateObject var order = Order()
     @State private var showSplash = true
     var body: some Scene {
         WindowGroup {
             
             if showSplash {
-                SplashScreen(showSplash: $showSplash)
+               SplashScreen(showSplash: $showSplash)
                     
             }
             else {

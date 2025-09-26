@@ -9,7 +9,7 @@ import SwiftUI
 
 struct orderLIstCell: View {
     @EnvironmentObject var order:Order
-    let orderItem:OrderItem
+    @StateObject var orderItem:OrderItem
     var body: some View {
         HStack{
             AppetizerRemoteImage(imageURL: orderItem.appetizer.imageURL)
@@ -22,8 +22,8 @@ struct orderLIstCell: View {
                 Text(orderItem.appetizer.name)
                     .font(.title2)
                     .fontWeight(.medium)
-                    
-                Text("$\(orderItem.appetizer.price,specifier: "%.2f")")
+                
+                Text("$\(orderItem.totalPrice,specifier: "%.2f")")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -32,11 +32,10 @@ struct orderLIstCell: View {
             
             HStack(spacing:10){
                 Button{
-                    if let index = order.items.firstIndex(where: {$0.id == orderItem.id}){
-                        order.items[index].quantity+=1
-                        
-                        
-                    }
+                    print("Before: \(orderItem.quantity)")
+                    orderItem.quantity+=1
+                    print("After: \(orderItem.quantity)")
+            
                 } label: {
                     Image(systemName: "plus.circle.fill")
                         .foregroundColor(.green)
@@ -49,9 +48,10 @@ struct orderLIstCell: View {
                     .font(.headline)
                 
                 Button {
-                    if let index = order.items.firstIndex(where: {$0.id == orderItem.id}){
-                        order.items[index].quantity -= 1
-                        
+                    
+                        if orderItem.quantity > 1 {
+                            orderItem.quantity -= 1
+                            
                     }
                 }label: {
                     Image(systemName: "minus.circle.fill")
@@ -60,7 +60,7 @@ struct orderLIstCell: View {
                     
                 }
                 
-
+                
                 
                 
             }

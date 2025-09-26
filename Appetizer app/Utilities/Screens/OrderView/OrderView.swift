@@ -18,8 +18,9 @@ struct OrderView: View {
             ZStack {
                 VStack {
                     List {
-                        ForEach(order.items) { orderitem in
-                            
+                        ForEach(order.items) { item in
+                            orderLIstCell(orderItem: item)
+
                         }
                         .onDelete { IndexSet in
                             order.items.remove(atOffsets: IndexSet)

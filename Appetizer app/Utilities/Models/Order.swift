@@ -29,7 +29,6 @@ final class Order:ObservableObject {
         if let index  = items.firstIndex(where: {$0.appetizer.id == appetizer.id}){
             items[index].quantity += 1
             
-            
         }
         else {
             let newItem = OrderItem(appetizer: appetizer, quantity: 1)
@@ -46,6 +45,7 @@ final class Order:ObservableObject {
         items.removeAll()
     }
 }
+
 
 
 

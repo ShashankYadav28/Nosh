@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
-struct OrderItem:Identifiable {
+final class OrderItem:Identifiable,ObservableObject {
     let id = UUID()
     let appetizer:Appetizer
-    var quantity:Int
+   @Published var quantity:Int
     
     var totalPrice:Double {
         Double(quantity) * appetizer.price
     }
     
-    
+   init(appetizer: Appetizer, quantity: Int) {
+        self.appetizer = appetizer
+        self.quantity = quantity
+    }
 }
 
 
