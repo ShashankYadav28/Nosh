@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct orderLIstCell: View {
-    @EnvironmentObject var order:Order
-    @StateObject var orderItem:OrderItem
+   // @EnvironmentObject var order:Order
+    @ObservedObject var orderItem:OrderItem
     var body: some View {
         HStack{
             AppetizerRemoteImage(imageURL: orderItem.appetizer.imageURL)
@@ -43,6 +43,7 @@ struct orderLIstCell: View {
                     
                     
                 }
+                .buttonStyle(PlainButtonStyle())
                 
                 Text("\(orderItem.quantity)")
                     .font(.headline)
@@ -59,7 +60,7 @@ struct orderLIstCell: View {
                         .font(.title3)
                     
                 }
-                
+                .buttonStyle(PlainButtonStyle())
                 
                 
                 
@@ -72,5 +73,5 @@ struct orderLIstCell: View {
 
 #Preview {
     orderLIstCell(orderItem: OrderItem(appetizer: MockData.sampleAppetizer, quantity: 2))
-        .environmentObject(Order())
+      //  .environmentObject(Order())
 }

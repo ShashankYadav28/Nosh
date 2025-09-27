@@ -14,9 +14,12 @@
 //Returns the sum of all item prices → the cart total.
 
 import SwiftUI
+import Combine
 
 final class Order:ObservableObject {
     @Published var items:[OrderItem] = []
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     var totalPrice: Double {
         items.reduce(0) {
@@ -33,6 +36,7 @@ final class Order:ObservableObject {
         else {
             let newItem = OrderItem(appetizer: appetizer, quantity: 1)
             items.append(newItem)
+            observe(item: newItem)
         }
             
     }
@@ -43,6 +47,14 @@ final class Order:ObservableObject {
     
     func clear() {
         items.removeAll()
+    }
+    
+    private func observe(item:OrderItem) {   // here observe we are observing the item change
+        item.objectWillChange                 // here it will emit the signal if the order item is changed
+            .sink { [weak self] _ in          // .sink is used to listen to changes  and here waek self i have created for listening to the changes
+                self?.objectWillChange.send()   // self? checks if the object still exists, then notifies SwiftUI of changes
+            }
+            .store(in: &cancellables)
     }
 }
 

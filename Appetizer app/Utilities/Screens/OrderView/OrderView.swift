@@ -18,7 +18,7 @@ struct OrderView: View {
             ZStack {
                 VStack {
                     List {
-                        ForEach(order.items) { item in
+                        ForEach(order.items,id: \.id) { item in
                             orderLIstCell(orderItem: item)
 
                         }
