@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
-
 struct OrderView: View {
     
+    @State private var showConformationScreen = false
     @EnvironmentObject var order: Order
+    
+    
  //   @State var orderAppetizer:OrderItem
     
     
@@ -29,13 +31,17 @@ struct OrderView: View {
                     .listStyle(PlainListStyle())
                     
                     Button {
-                        print("order placed")
+                        showConformationScreen = true
+                        
                     } label: {
                         APButton(title: "$\(order.totalPrice, specifier: "%.2f") - Place Order")
                         //Text("$\(order.totalPrice, specifier: "%.2f") - Place Order")
                     }
                    // .modifier(StandardButtonStyle())
                     .padding(.bottom, 25)
+                    .sheet(isPresented: $showConformationScreen) {
+                        OrderConformationScreen( showConformationScreen: $showConformationScreen)
+                    }
                 }
                 
                 if order.items.isEmpty {

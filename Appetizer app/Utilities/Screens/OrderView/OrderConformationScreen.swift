@@ -9,12 +9,13 @@ import SwiftUI
 
 struct OrderConformationScreen: View {
     @EnvironmentObject var order:Order
+    @Binding var showConformationScreen:Bool
     @State private var isProcessing  = true
     @State private var showSuccess = false
     var body: some View {
         ZStack {
             if isProcessing {
-                ProgressView("Processing your order ")
+                ProgressView("Processing your order for the item ")
                     .progressViewStyle(CircularProgressViewStyle(tint: .brandPrimary))
                 
             }
@@ -35,8 +36,9 @@ struct OrderConformationScreen: View {
                     Text("Your order is on the way ")
                         .foregroundColor(.secondary)
                     
-                    Button("back to button"){
-                        order.clear()
+                    Button("back to Home"){
+                        showConformationScreen = false
+                        //order.clear()
                     }
                     .buttonStyle(.borderedProminent)
                     
@@ -50,7 +52,10 @@ struct OrderConformationScreen: View {
             DispatchQueue.main.asyncAfter(deadline: .now()+2){   // means this may take time current threqad doesnot stops working
                                                                 // means it will display the screen after the 2 seconds of the current instance of the time
                 
-                withAnimation{
+                withAnimation(.easeIn(duration: 0.5)){
+
+                    isProcessing = false
+                    showSuccess = true
                     
                 }
                 
@@ -61,6 +66,6 @@ struct OrderConformationScreen: View {
 }
 
 #Preview {
-    OrderConformationScreen()
+    OrderConformationScreen( showConformationScreen: .constant(true))
      .environmentObject(Order())
 }
