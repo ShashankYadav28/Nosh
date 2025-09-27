@@ -12,6 +12,8 @@ struct OrderConformationScreen: View {
     @Binding var showConformationScreen:Bool
     @State private var isProcessing  = true
     @State private var showSuccess = false
+    //@StateObject private var Orderhistory = OrderHistoryModel()
+    @EnvironmentObject var orderHistory:OrderHistoryModel
     var body: some View {
         ZStack {
             if isProcessing {
@@ -38,7 +40,10 @@ struct OrderConformationScreen: View {
                     
                     Button("back to Home"){
                         showConformationScreen = false
-                        //order.clear()
+                        //orderHistory.pastOrders.append(order.items.map { OrderItem(appetizer: $0.appetizer, quantity: $0.quantity) })
+                        
+                        // i will not use the above case because i have to pass the many orders and if i pass the order items than i wiill not able to use quantity and the total price of the object 
+                        order.clear()
                     }
                     .buttonStyle(.borderedProminent)
                     
