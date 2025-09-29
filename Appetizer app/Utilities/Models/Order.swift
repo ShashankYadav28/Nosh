@@ -16,7 +16,8 @@
 import SwiftUI
 import Combine
 
-final class Order:ObservableObject {
+final class Order:ObservableObject, Identifiable {
+    let id  = UUID()
     @Published var items:[OrderItem] = []
     
     private var cancellables: Set<AnyCancellable> = []

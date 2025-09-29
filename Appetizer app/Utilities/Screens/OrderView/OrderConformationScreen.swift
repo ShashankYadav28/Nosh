@@ -13,57 +13,86 @@ struct OrderConformationScreen: View {
     @State private var isProcessing  = true
     @State private var showSuccess = false
     //@StateObject private var Orderhistory = OrderHistoryModel()
+    
+    @State private var showOrderhistory = false
+    
     @EnvironmentObject var orderHistory:OrderHistoryModel
+    
     var body: some View {
-        ZStack {
-            if isProcessing {
-                ProgressView("Processing your order for the item ")
-                    .progressViewStyle(CircularProgressViewStyle(tint: .brandPrimary))
+        NavigationStack {
+            ZStack {
+                if isProcessing {
+                    ProgressView("Processing your order for the item ")
+                        .progressViewStyle(CircularProgressViewStyle(tint: .brandPrimary))
+                    
+                }
                 
-            }
-            
-            if showSuccess {
-                VStack(spacing:20) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .resizable()
-                        .frame(width:100,height:100)
-                        .scaleEffect(showSuccess ? 1.2 : 1.0)
-                        .animation(.easeInOut(duration: 0.3), value: showSuccess)
-                    
-                    Text("Order Confirmed")
-                        .font(.title)
-                        .font(.system(size: 32))
-                        .fontWeight(.semibold)
-                    
-                    Text("Your order is on the way ")
-                        .foregroundColor(.secondary)
-                    
-                    Button("back to Home"){
-                        showConformationScreen = false
-                        //orderHistory.pastOrders.append(order.items.map { OrderItem(appetizer: $0.appetizer, quantity: $0.quantity) })
+                if showSuccess {
+                    VStack(spacing:20) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .resizable()
+                            .frame(width:100,height:100)
+                            .scaleEffect(showSuccess ? 1.2 : 1.0)
+                            .animation(.easeInOut(duration: 0.3), value: showSuccess)
                         
-                        // i will not use the above case because i have to pass the many orders and if i pass the order items than i wiill not able to use quantity and the total price of the object 
-                        order.clear()
+                        Text("Order Confirmed")
+                            .font(.title)
+                            .font(.system(size: 32))
+                            .fontWeight(.semibold)
+                        
+                        Text("Your order is on the way ")
+                            .foregroundColor(.secondary)
+                        
+                        Button("back to Home"){
+                            showConformationScreen = false
+                            //orderHistory.pastOrders.append(order.items.map { OrderItem(appetizer: $0.appetizer, quantity: $0.quantity) })
+                            
+                            // i will not use the above case because i have to pass  many orders and if i pass the order items than i wiill not able to use quantity and the total price of the object
+                            
+                            
+                        }
+                        .buttonStyle(.borderedProminent)
+                        
+                        /*  if (showOrderhistory == true && showSuccess ==  false ) {
+                         OrderHistoryView()
+                         }
+                         */
+                        
+                        
                     }
-                    .buttonStyle(.borderedProminent)
+                }
+                
+            }
+            .onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now()+2){   // means this may take time current threqad doesnot stops                                                                  working
+                    // means it will display the screen after the 2 seconds of the current instance of the time
                     
-                    
+                    withAnimation(.easeIn(duration: 0.5)){
+                        
+                        isProcessing = false
+                        showSuccess = true
+                        
+                        
+                        // i will be pasing the order of the objects
+                        orderHistory.pastOrders.append(order)
+                        order.clear()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+                            showOrderhistory = true
+                            
+                            
+                        }
+                        
+                        
+                        showOrderhistory = true
+                        
+                        
+                    }
                     
                 }
             }
-            
-        }
-        .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now()+2){   // means this may take time current threqad doesnot stops working
-                                                                // means it will display the screen after the 2 seconds of the current instance of the time
-                
-                withAnimation(.easeIn(duration: 0.5)){
-
-                    isProcessing = false
-                    showSuccess = true
-                    
-                }
-                
+            .navigationDestination(isPresented: $showOrderhistory) {
+                OrderHistoryView()
             }
         }
     }
@@ -73,4 +102,5 @@ struct OrderConformationScreen: View {
 #Preview {
     OrderConformationScreen( showConformationScreen: .constant(true))
      .environmentObject(Order())
+     .environmentObject(OrderHistoryModel())
 }

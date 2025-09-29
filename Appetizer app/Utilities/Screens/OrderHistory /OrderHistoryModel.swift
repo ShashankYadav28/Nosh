@@ -7,6 +7,7 @@
 
 import Foundation
 
-final class OrderHistoryModel: ObservableObject {
+final class OrderHistoryModel: ObservableObject{
    // @Published var pastOrders:[[OrderItem]] = []
+    @Published var pastOrders:[Order] = []
 }

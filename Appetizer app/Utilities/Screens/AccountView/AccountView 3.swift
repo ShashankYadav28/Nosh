@@ -70,6 +70,12 @@ struct AccountView: View {
                     Toggle("Frequent Refills", isOn: $viewModel.user.frequentRefills)
                 }
                 .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
+                
+                Section(header:Text("Orders")){
+                    NavigationLink(destination: OrderHistoryView()) {
+                        Label("Order History",systemImage: "clock.arrow.circlepath")
+                    }
+                }
             }
             .navigationTitle("Account")
             .toolbar {
@@ -93,5 +99,6 @@ struct AccountView: View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
+            .environmentObject(OrderHistoryModel())
     }
 }
