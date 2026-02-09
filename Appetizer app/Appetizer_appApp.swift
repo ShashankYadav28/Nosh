@@ -12,6 +12,10 @@ struct Appetizer_appApp: App {
     @StateObject var order = Order()
     @State private var showSplash = true
     @StateObject private var OrderHistory = OrderHistoryModel()
+    
+    init() {
+        _ = DatabaseManager.shared
+    }
     var body: some Scene {
         WindowGroup {
             

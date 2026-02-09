@@ -13,17 +13,14 @@ final class AccountViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     
     
+    
     func saveChanges() {
         guard isValidForm else { return }
         
-        do {
-            let data = try JSONEncoder().encode(user)
-            userData = data
-            alertItem = AlertContext.savedSuccess
-        } catch {
-            alertItem = AlertContext.errorsaving
-        }
+        DatabaseManager.shared.insertUser(user: user)
+        alertItem = AlertContext.savedSuccess
     }
+    
     
     
     func retrieveUser() {
@@ -38,6 +35,7 @@ final class AccountViewModel: ObservableObject {
         
         do {
             user = try JSONDecoder().decode(User.self, from: userData)
+            print(user)
         } catch {
             alertItem = AlertContext.invalidData
         }

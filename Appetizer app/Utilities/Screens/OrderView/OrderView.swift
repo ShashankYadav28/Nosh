@@ -39,7 +39,7 @@ struct OrderView: View {
                     }
                    // .modifier(StandardButtonStyle())
                     .padding(.bottom, 25)
-                    .sheet(isPresented: $showConformationScreen) {
+                    .fullScreenCover(isPresented: $showConformationScreen) {
                         OrderConformationScreen( showConformationScreen: $showConformationScreen)
                     }
                 }

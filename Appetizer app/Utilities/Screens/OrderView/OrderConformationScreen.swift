@@ -58,37 +58,42 @@ struct OrderConformationScreen: View {
                          }
                          */
                         
+                       
+                        
                         
                     }
                 }
                 
             }
-            .onAppear{
-                DispatchQueue.main.asyncAfter(deadline: .now()+2){   // means this may take time current threqad doesnot stops                                                                  working
-                    // means it will display the screen after the 2 seconds of the current instance of the time
-                    
-                    withAnimation(.easeIn(duration: 0.5)){
-                        
+            .onAppear {
+
+                guard !order.items.isEmpty else { return }
+
+                // ✅ Use ViewModel logic (clean & correct)
+                let totalAmount = order.totalPrice
+                let itemCount = order.items.reduce(0) { $0 + $1.quantity }
+
+                // ✅ Store order summary in SQLite
+                DatabaseManager.shared.insertOrder(
+                    totalAmount: totalAmount,
+                    itemCount: itemCount
+                )
+
+                // ✅ (Optional) In-memory order history for UI
+                let completeOrder = Order()
+                completeOrder.items = order.items.map {
+                    OrderItem(appetizer: $0.appetizer, quantity: $0.quantity)
+                }
+                orderHistory.pastOrders.append(completeOrder)
+
+                // ✅ Clear cart after saving
+                order.clear()
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    withAnimation(.easeIn(duration: 0.5)) {
                         isProcessing = false
                         showSuccess = true
-                        
-                        
-                        // i will be pasing the order of the objects
-                        orderHistory.pastOrders.append(order)
-                        order.clear()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now()+2){
-                            showOrderhistory = true
-                            
-                            
-                        }
-                        
-                        
-                        showOrderhistory = true
-                        
-                        
                     }
-                    
                 }
             }
             .navigationDestination(isPresented: $showOrderhistory) {

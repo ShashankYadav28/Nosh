@@ -42,6 +42,10 @@ struct AppetizerListView: View {
                 LoadingView()
             }
         }
+        .onAppear(perform: {
+            let defaults  = UserDefaults.standard
+            print(defaults.dictionaryRepresentation())
+        })
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(title: alertItem.Title,
                   message: alertItem.message,
