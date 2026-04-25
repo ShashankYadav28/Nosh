@@ -1,111 +1,107 @@
-//
-//  OrderConformationScreen.swift
-//  Appetizer app
-//
-//  Created by Shashank Yadav on 27/09/25.
-//
-
 import SwiftUI
 
 struct OrderConformationScreen: View {
-    @EnvironmentObject var order:Order
-    @Binding var showConformationScreen:Bool
-    @State private var isProcessing  = true
+
+    @EnvironmentObject var order: Order
+    @EnvironmentObject var orderHistory: OrderHistoryModel
+
+    @Binding var showConformationScreen: Bool
+    @Binding var selectedTab: Int
+
+    @State private var isProcessing = true
     @State private var showSuccess = false
-    //@StateObject private var Orderhistory = OrderHistoryModel()
-    
-    @State private var showOrderhistory = false
-    
-    @EnvironmentObject var orderHistory:OrderHistoryModel
-    
+    @State private var showProfileAlert = false
+
     var body: some View {
+
         NavigationStack {
+
             ZStack {
+
                 if isProcessing {
-                    ProgressView("Processing your order for the item ")
-                        .progressViewStyle(CircularProgressViewStyle(tint: .brandPrimary))
-                    
+
+                    ProgressView("Processing your order")
+                        .progressViewStyle(
+                            CircularProgressViewStyle(tint: .brandPrimary)
+                        )
                 }
-                
+
                 if showSuccess {
-                    VStack(spacing:20) {
+
+                    VStack(spacing: 20) {
+
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()
-                            .frame(width:100,height:100)
-                            .scaleEffect(showSuccess ? 1.2 : 1.0)
-                            .animation(.easeInOut(duration: 0.3), value: showSuccess)
-                        
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(.green)
+
                         Text("Order Confirmed")
-                            .font(.title)
-                            .font(.system(size: 32))
-                            .fontWeight(.semibold)
-                        
-                        Text("Your order is on the way ")
+                            .font(.system(size: 32, weight: .semibold))
+
+                        Text("Your order is on the way")
                             .foregroundColor(.secondary)
-                        
-                        Button("back to Home"){
+
+                        Button("Back to Home") {
                             showConformationScreen = false
-                            //orderHistory.pastOrders.append(order.items.map { OrderItem(appetizer: $0.appetizer, quantity: $0.quantity) })
-                            
-                            // i will not use the above case because i have to pass  many orders and if i pass the order items than i wiill not able to use quantity and the total price of the object
-                            
-                            
+                            selectedTab = 0
                         }
                         .buttonStyle(.borderedProminent)
-                        
-                        /*  if (showOrderhistory == true && showSuccess ==  false ) {
-                         OrderHistoryView()
-                         }
-                         */
-                        
-                       
-                        
-                        
                     }
                 }
-                
             }
+
             .onAppear {
 
                 guard !order.items.isEmpty else { return }
 
-                // ✅ Use ViewModel logic (clean & correct)
+                guard DatabaseManager.shared.userExists() else {
+
+                    isProcessing = false
+                    showProfileAlert = true
+                    return
+                }
+
                 let totalAmount = order.totalPrice
                 let itemCount = order.items.reduce(0) { $0 + $1.quantity }
 
-                // ✅ Store order summary in SQLite
                 DatabaseManager.shared.insertOrder(
+                    items: order.items,
                     totalAmount: totalAmount,
                     itemCount: itemCount
                 )
 
-                // ✅ (Optional) In-memory order history for UI
-                let completeOrder = Order()
-                completeOrder.items = order.items.map {
-                    OrderItem(appetizer: $0.appetizer, quantity: $0.quantity)
-                }
-                orderHistory.pastOrders.append(completeOrder)
+                orderHistory.loadOrders()
 
-                // ✅ Clear cart after saving
                 order.clear()
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+
                     withAnimation(.easeIn(duration: 0.5)) {
+
                         isProcessing = false
                         showSuccess = true
                     }
                 }
             }
-            .navigationDestination(isPresented: $showOrderhistory) {
-                OrderHistoryView()
+
+            .alert("Profile Required",
+                   isPresented: $showProfileAlert) {
+
+                Button("Go to Profile") {
+
+                    showConformationScreen = false
+                    selectedTab = 1
+                }
+
+                Button("Cancel", role: .cancel) {
+
+                    showConformationScreen = false
+                }
+
+            } message: {
+
+                Text("Please complete your account profile before placing an order.")
             }
         }
     }
-    
-}
-
-#Preview {
-    OrderConformationScreen( showConformationScreen: .constant(true))
-     .environmentObject(Order())
-     .environmentObject(OrderHistoryModel())
 }

@@ -37,7 +37,7 @@
 		DD700C1B2E7E67E100DDA7DA /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C1A2E7E67E100DDA7DA /* AppetizerDetailView.swift */; };
 		DD700C1D2E7E67FA00DDA7DA /* AppetizerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C1C2E7E67FA00DDA7DA /* AppetizerListView.swift */; };
 		DD700C1F2E7E68D800DDA7DA /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C1E2E7E68D800DDA7DA /* OrderView.swift */; };
-		DD700C222E7E691100DDA7DA /* AppetizerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C212E7E691100DDA7DA /* AppetizerTabView.swift */; };
+		DD700C222E7E691100DDA7DA /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C212E7E691100DDA7DA /* AppTabView.swift */; };
 		DD700C282E7E71E400DDA7DA /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD700C272E7E71E400DDA7DA /* EmptyState.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +93,7 @@
 		DD700C1A2E7E67E100DDA7DA /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		DD700C1C2E7E67FA00DDA7DA /* AppetizerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListView.swift; sourceTree = "<group>"; };
 		DD700C1E2E7E68D800DDA7DA /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
-		DD700C212E7E691100DDA7DA /* AppetizerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTabView.swift; sourceTree = "<group>"; };
+		DD700C212E7E691100DDA7DA /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		DD700C272E7E71E400DDA7DA /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,7 +294,7 @@
 		DD700C0D2E7E668000DDA7DA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DD700C212E7E691100DDA7DA /* AppetizerTabView.swift */,
+				DD700C212E7E691100DDA7DA /* AppTabView.swift */,
 				DD4DE5532E88574F0042F005 /* OrderHistory  */,
 				DD700C202E7E68E500DDA7DA /* OrderView */,
 				DD700C172E7E67A400DDA7DA /* AppetizerListview */,
@@ -492,7 +492,7 @@
 				DD5385C02E798CE60079945E /* User_App Storage.swift in Sources */,
 				DD700C062E7E644800DDA7DA /* SplashScreen.swift in Sources */,
 				DD6C33222E717D48009B3FEE /* AppetizerlistCell1.swift in Sources */,
-				DD700C222E7E691100DDA7DA /* AppetizerTabView.swift in Sources */,
+				DD700C222E7E691100DDA7DA /* AppTabView.swift in Sources */,
 				DD4DE54D2E83A91E0042F005 /* OrderItem.swift in Sources */,
 				DD6C33262E717D48009B3FEE /* ColorExtension.swift in Sources */,
 				DD6C33272E717D48009B3FEE /* loadingView.swift in Sources */,
